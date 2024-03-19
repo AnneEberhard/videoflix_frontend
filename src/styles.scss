@@ -3,7 +3,7 @@ body {
   color: white;
   overflow-x: hidden;
   max-width: 1920px;
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   min-height: 100vh;
   align-items: stretch;
@@ -14,7 +14,7 @@ body {
 }
 
 section {
-  display: flex;
+  display: flex !important;
   justify-content: center;
   align-items: center;
   flex:1;
