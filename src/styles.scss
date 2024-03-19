@@ -47,6 +47,12 @@ h1 {
     color: #e50914;
 }
 
+.legal {
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 32px;
+}
+
 /* roboto-100 - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
