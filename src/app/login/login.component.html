@@ -1,8 +1,18 @@
 <app-header></app-header>
-
-<div>
-    <input name="name" id="name" placeholer="Username">
-    <input type="password" id="password" placeholder="Password">
-    <button onclick="login()" type="button">Login</button>
-</div>
+<section>
+  <div id="loginBox">
+    <h2>Einloggen</h2>
+    <form action="">
+      <input name="email" id="email" placeholder="Email-Adresse" />
+      <input type="password" id="password" placeholder="Passwort" />
+      <button (click)="login()" type="button">Einloggen</button>
+    </form>
+    <a class="center" routerLink="forgot">Passwort vergessen?</a>
+    <div id="rememberBox">
+      <div id="checkbox"><img src="assets/images/done.png"></div>
+      Benutzerdaten merken
+    </div>
+    <p>Neu bei Videoflix? <a routerLink="register"><b>Jetzt registrieren</b></a></p>
+  </div>
+</section>
 <app-footer></app-footer>

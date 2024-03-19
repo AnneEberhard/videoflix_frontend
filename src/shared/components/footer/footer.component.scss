@@ -1,9 +1,7 @@
 footer {
-    position: fixed;
-    bottom:0;
-    left:0;
-    right:0;
+    height: 70px;
     display: flex;
     padding: 32px;
     justify-content: space-around;
+    background-color: rgba(0,0,0,0.5);
 }
