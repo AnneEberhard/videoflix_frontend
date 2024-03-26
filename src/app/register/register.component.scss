@@ -23,7 +23,7 @@
     display:flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    margin-top: 16px;
     gap: 16px;
   }
 
@@ -47,6 +47,7 @@ form {
     
       button {
         background-color: #e50914;
+        margin-top: 16px;
         color: white;
         border-radius: 0.25rem;
         cursor: pointer;
@@ -66,4 +67,15 @@ form {
             background-color: #ad0810;
         }
       }
+  }
+
+  .border-red {
+    border: 1px solid red !important;
+  }
+
+  .alert {
+    font-size: 10px;
+    width: 100%;
+    text-align: right;
+    color: red;
   }

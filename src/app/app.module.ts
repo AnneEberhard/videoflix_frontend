@@ -11,6 +11,9 @@ import { FooterComponent } from 'src/shared/components/footer/footer.component';
 import { ScrollComponent } from 'src/shared/components/scroll/scroll.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from 'src/shared/services/auth.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,8 +31,12 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [    
+    AuthService,
+
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

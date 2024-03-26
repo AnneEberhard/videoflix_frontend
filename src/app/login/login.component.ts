@@ -11,8 +11,12 @@ import { AuthService } from 'src/shared/services/auth.service';
 export class LoginComponent {
     constructor(private router: Router, private authservice: AuthService) { }
 
+
 login() {
     this.router.navigate(['/main']);
 }
+
+
+
 
 }

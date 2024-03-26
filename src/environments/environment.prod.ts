@@ -1,5 +1,5 @@
 export const environment = {
     production: false,
-    apiUrl: 'http://localhost:8000/api',
+    baseUrl: 'https://example.com/api', // Hier kommt die Basis-URL für dein Produktions-Django-Backend
   };
   
