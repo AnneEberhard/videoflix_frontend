@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from 'src/shared/components/header/header.component';
 import { FooterComponent } from 'src/shared/components/footer/footer.component';
 import { ScrollComponent } from 'src/shared/components/scroll/scroll.component';
+import { RegisterComponent } from './register/register.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,10 +22,12 @@ import { ScrollComponent } from 'src/shared/components/scroll/scroll.component';
     HeaderComponent,
     FooterComponent,
     ScrollComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
