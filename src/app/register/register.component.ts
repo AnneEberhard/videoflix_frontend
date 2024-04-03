@@ -21,8 +21,12 @@ export class RegisterComponent {
 
   constructor(private authService: AuthService) { }
 
+    /**
+ * checks if email is correct
+ * @param {NgForm} form - starts validation, and if true, sends registration to backend
+ * @returns boolean
+ */
   onSubmit(form: NgForm) {
-    console.log(this.formData);
     if(this.checkForm(form)) {
       const userData = {
         email: this.formData.email,
@@ -34,6 +38,11 @@ export class RegisterComponent {
     }
   
 
+  /**
+ * checks if email is correct
+ * @param {NgForm} form - starts varies functions to validate the form
+ * @returns boolean
+ */
   checkForm(form: NgForm) {
     if (form.valid) {
        if (!this.validateEmail(this.formData.email)) {

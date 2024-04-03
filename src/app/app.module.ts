@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from 'src/shared/services/auth.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
+import { VideoComponent } from './video/video.component';
+import { BackendService } from 'src/shared/services/backend.service';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     ScrollComponent,
     RegisterComponent,
+    VideoComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [    
     AuthService,
+    BackendService,
+    
 
 ],
   bootstrap: [AppComponent]
