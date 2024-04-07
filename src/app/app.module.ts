@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { VideoComponent } from './video/video.component';
 import { BackendService } from 'src/shared/services/backend.service';
 
+import { ConfirmationComponent } from './confirmation/confirmation.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +31,7 @@ import { BackendService } from 'src/shared/services/backend.service';
     ScrollComponent,
     RegisterComponent,
     VideoComponent,
+    ConfirmationComponent,
   ],
   imports: [
     BrowserModule,

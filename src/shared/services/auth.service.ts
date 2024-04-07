@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, take } from 'rxjs';
@@ -14,16 +14,23 @@ export class AuthService {
 
 
   public registerUser(userData: any) {
-    try {
-      this.registerUserinBackend(userData).pipe(take(1))
-        .subscribe(response => console.log(response) );
-      
-      this.router.navigateByUrl(`{environment.baseUrl}`);
-    } catch (e) {
-      alert('Registrierung fehlgeschlagen!');
-      console.error(e);
-    }
+    this.registerUserinBackend(userData).pipe(take(1))
+      .subscribe({
+        next: (response) => {
+          console.log(response);
+          this.router.navigateByUrl(`/confirmation?data=${JSON.stringify(response)}`);
+        },
+        error: (err) => {
+          if (err instanceof HttpErrorResponse) {
+            this.router.navigateByUrl(`/confirmation?data=${JSON.stringify(err.error)}`);
+          } else {
+            console.error('An error occurred:', err);
+            alert('An error occurred!');
+          }
+        }
+      });
   }
+  
 
 
   registerUserinBackend(userData: any): Observable<any> {

@@ -5,6 +5,7 @@ import { ImprintComponent } from './imprint/imprint.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { MainComponent } from './main/main.component';
 import { RegisterComponent } from './register/register.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'privacy', component: PrivacyComponent },
   { path: 'main', component: MainComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'confirmation', component: ConfirmationComponent },
 ];
 
 @NgModule({
