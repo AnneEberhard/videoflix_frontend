@@ -17,7 +17,6 @@ export class AuthService {
     this.registerUserinBackend(userData).pipe(take(1))
       .subscribe({
         next: (response) => {
-          console.log(response);
           this.router.navigateByUrl(`/confirmation?data=${JSON.stringify(response)}`);
         },
         error: (err) => {

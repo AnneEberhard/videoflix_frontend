@@ -32,11 +32,9 @@ export class ConfirmationComponent implements OnInit {
     const confirmationBox = document.getElementById('confirmationBox');
     if (confirmationBox) {
       if (data.success) {
-        console.log(data.success);
         confirmationBox.innerHTML = this.templateSuccess();
       }
       if (data.error) {
-        console.log(data.error);
         confirmationBox.innerHTML = this.templateError(data.error);
       }
     } else {
