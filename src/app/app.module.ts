@@ -18,6 +18,7 @@ import { VideoComponent } from './video/video.component';
 import { BackendService } from 'src/shared/services/backend.service';
 
 import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { AuthInterceptor } from 'src/shared/services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,11 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
   providers: [    
     AuthService,
     BackendService,
-    
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
 
 ],
   bootstrap: [AppComponent]

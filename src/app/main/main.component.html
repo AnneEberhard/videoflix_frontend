@@ -1,30 +1,6 @@
 
 <section><div class="content">
-    @if (backend.videos.length >= 1) {
 
-    @for (genre of genres; track $index) {
-
-
-    @if (backend.filterVideos(genre).length !== 0) {
-    <div class="row-container">
-        <div class="category">{{ genre.toUpperCase() }}</div>
-        <div class="video-rows">
-
-            @for (video of backend.filterVideos(genre); track $index) {
-            <app-video></app-video>
-            }
-
-
-        </div>
-    </div>
-    }
-    }
-
-    } @else {
-        <div class="novideos popup">
-            <div class="row">There are no videos at this moment.</div>
-        </div>
-    }
 
 </div></section>
 

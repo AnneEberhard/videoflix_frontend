@@ -2,5 +2,26 @@ header {
     display: flex;
     padding: 16px 32px 8px 32px;
     height: 70px;
-
+    justify-content: space-between;
 }
+
+button {
+    background-color: #e50914;
+    margin-top: 16px;
+    color: white;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    line-height: 1.5;
+    padding: 1rem;
+    min-height: 16px;
+    min-width: 16px;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-size: 1rem;
+    border: none;
+    color: inherit;
+
+    &:hover {
+        background-color: #ad0810;
+    }
+  }

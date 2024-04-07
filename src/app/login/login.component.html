@@ -1,16 +1,15 @@
 <section>
   <div id="loginBox">
     <h2>Log In</h2>
-    <form action="">
-      <input name="email" #email id="email" placeholder="Email address" />
-      <input type="password" #password id="password" placeholder="Password" />
+    <form>
+      <input name="email" [(ngModel)]="email" id="email" placeholder="Email address" />
+      <input type="password" name="password" [(ngModel)]="password" id="password" placeholder="Password" />
       <button (click)="login()" type="button">Log in</button>
     </form>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    
     <a class="center" routerLink="forgot">Forgot password?</a>
-    <div id="rememberBox">
-      <div id="checkbox"><img src="assets/images/done.png"></div>
-      Remember me
-    </div>
+
     <p>New at Videoflix? <a routerLink="/register"><b>Sign up now!</b></a></p>
   </div>
 </section>

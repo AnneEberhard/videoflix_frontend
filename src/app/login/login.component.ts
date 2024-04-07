@@ -9,14 +9,30 @@ import { AuthService } from 'src/shared/services/auth.service';
     styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-    constructor(private router: Router, private authservice: AuthService) { }
+    email: string = '';
+    password: string = '';
+    errorMessage: string = '';
+
+    constructor(private authService: AuthService, private router: Router) {}
 
 
-login() {
-    this.router.navigate(['/main']);
+    async login() {
+
+        try {
+          let resp:any = await this.authService.login(this.email, this.password);
+          console.log(resp);
+          sessionStorage.setItem('token', resp['token']);
+          this.router.navigate(['/main'])
+        } catch (error:any) {
+            if (error.status === 400 && error.error.error === 'Account not activated') {
+                this.errorMessage = 'Your account is not yet activated. Please check your emails and click on the activation link we have sent you.';
+              } else {
+                this.errorMessage = 'Error logging in. Please check your login information.';
+              }
+    
+        }
+      }
+   
 }
 
 
-
-
-}
