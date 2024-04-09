@@ -20,6 +20,7 @@ import { BackendService } from 'src/shared/services/backend.service';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { AuthInterceptor } from 'src/shared/services/auth-interceptor.service';
 import { ForgotComponent } from './forgot/forgot.component';
+import { ResetComponent } from './reset/reset.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ForgotComponent } from './forgot/forgot.component';
     RegisterComponent,
     VideoComponent,
     ConfirmationComponent,
-    ForgotComponent
+    ForgotComponent,
+    ResetComponent
   ],
   imports: [
     BrowserModule,

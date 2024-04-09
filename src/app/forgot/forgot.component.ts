@@ -13,24 +13,21 @@ export class ForgotComponent {
   errorMessage: string = '';
 
   async sendMail() {
-
     try {
       let resp:any = await this.authService.forgot(this.email);
-      console.log(resp);
       this.renderInfo();
     } catch (error:any) {
         if (error.status === 400 && error.error.error === 'Account not activated') {
             this.errorMessage = 'Your account is not yet activated. Please check your emails and click on the activation link we have sent you.';
           } else {
-            this.errorMessage = 'Error logging in. Please check your login information.';
+            this.errorMessage = 'Error in sending. Please check your input.';
           }
-
     }
 }
 
 renderInfo() {
   let div = document.getElementById('infoBox');
   if(div)
-  div.innerHTML = 'An Email was sent';
+  div.innerHTML = 'An Email was sent.';
 }
 }

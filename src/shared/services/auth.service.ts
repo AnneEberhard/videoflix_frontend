@@ -97,5 +97,14 @@ export class AuthService {
     };
     return lastValueFrom(this.http.post(url, body));
   }
+
+public reset(key:string, password:string) {
+  const url = environment.baseUrl + key;
+  const body = {
+    "password": password
+  };
+  return lastValueFrom(this.http.post(url, body));
+}
+
 }
 

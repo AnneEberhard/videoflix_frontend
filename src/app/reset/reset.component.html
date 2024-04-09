@@ -1,0 +1,28 @@
+<header>
+    <a routerLink="/" >
+        <h1>Videoflix</h1>
+    </a>
+  </header>
+  <section>
+    <div id="resetBox">
+      <h2>Change your Account Password</h2>
+      <form #resetForm="ngForm" (ngSubmit)="reset(resetForm)">
+        <div class="inputBox">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" [(ngModel)]="formData.password" required>
+          </div>
+          <div class="alert" *ngIf="showErrorPasswordAlert">
+              Minimum length 8 letters.
+           </div>
+          <div class="inputBox">
+            <label for="confirmPassword">Confirm password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="formData.confirmPassword" required>
+          </div>
+          <div class="alert" *ngIf="showErrorPasswordMatchAlert">
+            Passwords do not match.
+          </div>
+        <button type="submit" [disabled]="!resetForm.valid">Log in</button>
+      </form>
+      <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    </div>
+  </section>

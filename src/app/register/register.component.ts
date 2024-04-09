@@ -22,8 +22,8 @@ export class RegisterComponent {
   constructor(private authService: AuthService) { }
 
     /**
- * checks if email is correct
- * @param {NgForm} form - starts validation, and if true, sends registration to backend
+ * starts validation, and if true, sends registration to backend
+ * @param {NgForm} form - entered data
  * @returns boolean
  */
   onSubmit(form: NgForm) {
@@ -39,8 +39,8 @@ export class RegisterComponent {
   
 
   /**
- * checks if email is correct
- * @param {NgForm} form - starts varies functions to validate the form
+ * starts varies functions to validate the form
+ * @param {NgForm} form - entered data
  * @returns boolean
  */
   checkForm(form: NgForm) {
@@ -98,7 +98,7 @@ validatePassword(password: string): boolean {
 }
 
   /**
- * checks if email is correct
+ * renders alert
  * @param {string} alertType - identifier of alert (email, password, passwordMatch=
  * @returns boolean
  */
