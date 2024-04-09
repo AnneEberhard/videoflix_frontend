@@ -1,1 +1,18 @@
-<p>forgot works!</p>
+<header>
+    <a routerLink="/" >
+        <h1>Videoflix</h1>
+    </a>
+  </header>
+  <section>
+    <div id="loginBox">
+      <h2>Forgot your password?</h2>
+      <form #form="ngForm" (ngSubmit)="sendMail()">
+        <input required name="email" id="email" placeholder="Email address" [(ngModel)]="email" #emailInput="ngModel" />
+        <button type="submit" [disabled]="!form.valid">Send</button>
+      </form>
+      <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+  
+      <p id="infoBox">Request a link to reset your password.
+      </p>
+    </div>
+  </section>

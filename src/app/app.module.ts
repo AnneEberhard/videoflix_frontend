@@ -19,6 +19,7 @@ import { BackendService } from 'src/shared/services/backend.service';
 
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { AuthInterceptor } from 'src/shared/services/auth-interceptor.service';
+import { ForgotComponent } from './forgot/forgot.component';
 
 @NgModule({
   declarations: [
@@ -33,12 +34,14 @@ import { AuthInterceptor } from 'src/shared/services/auth-interceptor.service';
     RegisterComponent,
     VideoComponent,
     ConfirmationComponent,
+    ForgotComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [    
     AuthService,

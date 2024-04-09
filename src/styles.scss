@@ -47,6 +47,12 @@ button {
   }
 }
 
+button[disabled] {
+  opacity: 0.5; 
+  cursor: not-allowed; 
+  background-color: grey !important;
+}
+
 section {
   display: flex !important;
   justify-content: center;

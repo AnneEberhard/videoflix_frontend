@@ -29,6 +29,8 @@ export class AuthService {
         }
       }
     });
+
+
   }
   
   
@@ -88,5 +90,12 @@ export class AuthService {
   }
 
 
+  public forgot(email: string) {
+    const url = environment.baseUrl + '/forgot/';
+    const body = {
+      "email": email
+    };
+    return lastValueFrom(this.http.post(url, body));
+  }
 }
 

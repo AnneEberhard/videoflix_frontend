@@ -6,6 +6,7 @@ import { PrivacyComponent } from './privacy/privacy.component';
 import { MainComponent } from './main/main.component';
 import { RegisterComponent } from './register/register.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { ForgotComponent } from './forgot/forgot.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'main', component: MainComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'confirmation', component: ConfirmationComponent },
+  { path: 'forgot', component: ForgotComponent },
 ];
 
 @NgModule({

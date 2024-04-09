@@ -32,7 +32,7 @@
         <div class="alert" *ngIf="showErrorPasswordMatchAlert">
             Passwords do not match.
           </div>
-        <button type="submit">Sign-up</button>
+        <button type="submit" [disabled]="!registerForm.valid">Sign-up</button>
       </form>
      <p class="">Already have an account? Go to <a routerLink="/login" >Login</a></p> 
     </div>
