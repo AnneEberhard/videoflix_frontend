@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/shared/services/auth.service';
 import { BackendService } from 'src/shared/services/backend.service';
 
 
@@ -10,8 +11,20 @@ import { BackendService } from 'src/shared/services/backend.service';
 })
 export class MainComponent {
 
-    constructor(public backend: BackendService, private router: Router) {
+    constructor(public authService: AuthService, public backend: BackendService, private router: Router) {
       }
 
  
+      async logout() {
+        const authToken = sessionStorage.getItem('token');
+        if (authToken) {
+          try {
+            await this.authService.logout(authToken);
+            this.router.navigate(['/login']);
+            sessionStorage.removeItem('token');
+          } catch (error: any) {
+            console.log('Error at logout:', error);
+          }
+        }
+      }
 }
