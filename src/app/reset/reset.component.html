@@ -21,8 +21,9 @@
           <div class="alert" *ngIf="showErrorPasswordMatchAlert">
             Passwords do not match.
           </div>
-        <button type="submit" [disabled]="!resetForm.valid">Log in</button>
+        <button type="submit" [disabled]="!resetForm.valid">Change password</button>
       </form>
       <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+      <p id="infoBox"></p>
     </div>
   </section>

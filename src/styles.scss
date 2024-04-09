@@ -24,6 +24,11 @@ header {
   padding: 16px 32px 8px 32px;
   height: 70px;
   justify-content: space-between;
+
+  a:hover {
+    text-decoration: none !important;
+    text-shadow: 10px 5px 5px red;
+  }
 }
 
 button {

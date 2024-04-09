@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/shared/services/auth.service';
 import { BackendService } from 'src/shared/services/backend.service';
+
 
 
 @Component({
@@ -9,11 +10,12 @@ import { BackendService } from 'src/shared/services/backend.service';
     templateUrl: './main.component.html',
     styleUrl: './main.component.scss',
 })
-export class MainComponent {
+export class MainComponent implements OnInit {
+
+  videos: any[] = [];
 
     constructor(public authService: AuthService, public backend: BackendService, private router: Router) {
       }
-
  
       async logout() {
         const authToken = sessionStorage.getItem('token');
@@ -27,4 +29,11 @@ export class MainComponent {
           }
         }
       }
+
+      ngOnInit(): void {
+        debugger;
+        this.backend.fetchVideoData();
+      }
+    
+
 }

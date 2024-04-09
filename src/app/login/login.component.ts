@@ -15,12 +15,12 @@ export class LoginComponent {
 
     constructor(private authService: AuthService, private router: Router) {}
 
-
+/**
+* starts login, sets storage token in case of success and renders errors in case of failure
+*/
     async login() {
-
         try {
           let resp:any = await this.authService.login(this.email, this.password);
-          console.log(resp);
           sessionStorage.setItem('token', resp['token']);
           this.router.navigate(['/main'])
         } catch (error:any) {
@@ -29,7 +29,6 @@ export class LoginComponent {
               } else {
                 this.errorMessage = 'Error logging in. Please check your login information.';
               }
-    
         }
       }
    

@@ -33,7 +33,7 @@ export class AuthService {
 
   }
   
-  
+
   setLoggedIn(value: boolean) {
     this.isLoggedInSubject.next(value);
   }
@@ -42,6 +42,9 @@ export class AuthService {
     return this.isLoggedInSubject.value;
   }
 
+/**
+ * 
+ */
   public registerUser(userData: any) {
     this.registerUserinBackend(userData).pipe(take(1))
       .subscribe({
@@ -59,13 +62,17 @@ export class AuthService {
       });
   }
 
-
+/**
+ * 
+ */
   registerUserinBackend(userData: any): Observable<any> {
     const url = environment.baseUrl + '/register/';
     return this.http.post<any>(url, userData);
   }
 
-
+/**
+ * handles user login in backend
+ */
   public login(email: string, password: string) {
     const url = environment.baseUrl + '/login/';
     const body = {
@@ -76,7 +83,9 @@ export class AuthService {
   }
 
 
-
+/**
+ * handles user logout in backend
+ */
   async logout(authToken: string) {
     const url = environment.baseUrl + `/logout/`;
     await fetch(url, {
@@ -89,7 +98,10 @@ export class AuthService {
     });
   }
 
-
+/**
+ * sends email-info to backend in case of forgotten password
+ * @param {string} email - user email address
+ */
   public forgot(email: string) {
     const url = environment.baseUrl + '/forgot/';
     const body = {
@@ -98,8 +110,14 @@ export class AuthService {
     return lastValueFrom(this.http.post(url, body));
   }
 
+/**
+ * sends new password to backend in case of forgotten password
+ * @param {string} key - url for backend including query params uid and token
+ * @param {string} password - new set password
+ */
 public reset(key:string, password:string) {
   const url = environment.baseUrl + key;
+  console.log(url);
   const body = {
     "password": password
   };

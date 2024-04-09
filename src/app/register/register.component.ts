@@ -21,13 +21,13 @@ export class RegisterComponent {
 
   constructor(private authService: AuthService) { }
 
-    /**
- * starts validation, and if true, sends registration to backend
- * @param {NgForm} form - entered data
- * @returns boolean
- */
+/**
+* starts validation, and if true, sends registration to backend
+* @param {NgForm} form - entered data
+* @returns boolean
+*/
   onSubmit(form: NgForm) {
-    if(this.checkForm(form)) {
+    if (this.checkForm(form)) {
       const userData = {
         email: this.formData.email,
         username: this.formData.username,
@@ -35,8 +35,8 @@ export class RegisterComponent {
       };
       this.authService.registerUser(userData)
     }
-    }
-  
+  }
+
 
   /**
  * starts varies functions to validate the form
@@ -45,7 +45,7 @@ export class RegisterComponent {
  */
   checkForm(form: NgForm) {
     if (form.valid) {
-       if (!this.validateEmail(this.formData.email)) {
+      if (!this.validateEmail(this.formData.email)) {
         this.renderAlert("email");
         return false;
       }
@@ -54,14 +54,14 @@ export class RegisterComponent {
         return false;
       }
       if (this.formData.password !== this.formData.confirmPassword) {
-        this.renderAlert("passwordMatch"); 
+        this.renderAlert("passwordMatch");
         return false;
       }
       return true;
     } else {
       return false
+    }
   }
-}
 
   /**
  * checks if email is correct
@@ -71,7 +71,7 @@ export class RegisterComponent {
   validateEmail(email: string): boolean {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     let checkEmail = emailRegex.test(email)
-    if(checkEmail) {
+    if (checkEmail) {
       this.showErrorEmailAlert = false;
     } else {
       this.showErrorEmailAlert = true;
@@ -79,39 +79,39 @@ export class RegisterComponent {
     return checkEmail;
   }
 
-/**
- * checks if password follows rules of at least 8 characters and not entirely numeric
- * @param {string} password - value of password field
- * @returns boolean
- */
-validatePassword(password: string): boolean {
-  if (password.length < 8) {
-    this.showErrorPasswordAlert = true;
-    return false;
+  /**
+   * checks if password follows rules of at least 8 characters and not entirely numeric
+   * @param {string} password - value of password field
+   * @returns boolean
+   */
+  validatePassword(password: string): boolean {
+    if (password.length < 8) {
+      this.showErrorPasswordAlert = true;
+      return false;
+    }
+    if (!/[a-zA-Z]/.test(password)) {
+      this.showErrorPasswordAlert = true;
+      return false;
+    }
+    this.showErrorPasswordAlert = false;
+    return true;
   }
-  if (!/[a-zA-Z]/.test(password)) {
-    this.showErrorPasswordAlert = true;
-    return false;
-  }
-  this.showErrorPasswordAlert = false;
-  return true;
-}
 
   /**
  * renders alert
  * @param {string} alertType - identifier of alert (email, password, passwordMatch=
  * @returns boolean
  */
-renderAlert(alertType: string) {
-  if (alertType === 'email') {
-    this.showErrorEmailAlert = true;
+  renderAlert(alertType: string) {
+    if (alertType === 'email') {
+      this.showErrorEmailAlert = true;
 
-  } else if (alertType === 'password') {
-    this.showErrorPasswordAlert = true;
-  } else if (alertType === 'passwordMatch') {
-    this.showErrorPasswordMatchAlert = true;
-  }
-    
+    } else if (alertType === 'password') {
+      this.showErrorPasswordAlert = true;
+    } else if (alertType === 'passwordMatch') {
+      this.showErrorPasswordMatchAlert = true;
+    }
+
   }
 
 

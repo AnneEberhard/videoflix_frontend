@@ -20,10 +20,12 @@ export class BackendService {
   constructor(private http: HttpClient, private router: Router, private auth: AuthService) { }
 
   fetchVideoData() {
+    const url = environment.baseUrl + `/videos/`;
     this.getVideos().pipe(take(1)).subscribe(
       {
         next: (data: Video[]) => {
           this.videos = data;
+          console.log(this.videos);
           this.auth.loader = false;
         },
         error: error => {
@@ -34,7 +36,8 @@ export class BackendService {
     }
     
     getVideos(): Observable<Video[]> {
-      return this.http.get<Video[]>(this.videoUrl);
+      const url = environment.baseUrl + `/videos/`;
+      return this.http.get<Video[]>(url);
     }
   
     filterVideos(genreToFilter: VideoGenre): Video[] {
