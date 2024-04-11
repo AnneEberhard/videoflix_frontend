@@ -19,6 +19,7 @@ export class BackendService {
 
   constructor(private http: HttpClient, private router: Router, private auth: AuthService) { }
 
+
   fetchVideoData() {
     const url = environment.baseUrl + `/videos/`;
     this.getVideos().pipe(take(1)).subscribe(
@@ -30,7 +31,6 @@ export class BackendService {
         },
         error: error => {
           this.auth.loader = true;
-          //this.ps.errorPopup('Error by loading data from backend');
         }
       } );
     }

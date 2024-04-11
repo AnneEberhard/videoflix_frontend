@@ -18,17 +18,19 @@ export class AuthService {
     const token = sessionStorage.getItem('token');
     if (token) {
       this.setLoggedIn(true);
+    }else {
+      this.setLoggedIn(false);
     }
   
-    window.addEventListener('storage', (event: StorageEvent) => {
-      if (event.storageArea === sessionStorage && event.key === 'token') {
-        if (event.newValue) {
-          this.setLoggedIn(true);
-        } else {
-          this.setLoggedIn(false);
-        }
-      }
-    });
+    // window.addEventListener('storage', (event: StorageEvent) => {
+    //   if (event.storageArea === sessionStorage && event.key === 'token') {
+    //     if (event.newValue) {
+    //       this.setLoggedIn(true);
+    //     } else {
+    //       this.setLoggedIn(false);
+    //     }
+    //   }
+    // });
 
 
   }

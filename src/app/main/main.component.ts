@@ -31,7 +31,6 @@ export class MainComponent implements OnInit {
       }
 
       ngOnInit(): void {
-        debugger;
         this.backend.fetchVideoData();
       }
     
