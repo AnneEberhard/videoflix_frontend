@@ -6,6 +6,14 @@
 </header>
 <section><div class="content">
 
-
+    <div class="contentTile" *ngFor="let video of videos" (click)="playVideo(video)">
+        <div>
+          <img [src]="video.thumbnail_file_url" alt="{{ video.title }} thumbnail">
+        </div>
+        <div>
+          <h3>{{ video.title }}</h3>
+          <p>{{ video.description }}</p>
+        </div>
+      </div>
 </div></section>
 

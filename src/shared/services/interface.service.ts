@@ -1,6 +1,6 @@
-export type VideoGenre = "documentation" | "blockbuster" | "comedy" | "action" | "drama" | "sitcom";
+export type VideoGenre = "Fantasy" | "Dystopia" | "Historical" | "Spy" | "Contemporary";
 
-export const genres:VideoGenre[] = ["documentation" , "blockbuster" , "comedy" , "action" , "drama" , "sitcom"];
+export const genres:VideoGenre[] = ["Fantasy" , "Dystopia" , "Historical" , "Spy" , "Contemporary"];
 
 export interface Video {
     title: string;
@@ -8,8 +8,8 @@ export interface Video {
     description: string;
     genre: VideoGenre;
     id?: number;
-    thumbnail: string | File;
-    video_file: string | File;  
+    thumbnail_url: string | File;
+    video_file_url: string | File;  
 }
 
 

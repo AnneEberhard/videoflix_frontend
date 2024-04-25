@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { ResetComponent } from './reset/reset.component';
+import { VideoComponent } from './video/video.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'confirmation', component: ConfirmationComponent },
   { path: 'forgot', component: ForgotComponent },
   { path: 'reset', component: ResetComponent },
+  { path: 'video', component: VideoComponent },
 ];
 
 @NgModule({

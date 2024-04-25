@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpEventType, HttpProgressEvent } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable, filter, take } from 'rxjs';
+import { Observable, catchError, filter, of, take, tap } from 'rxjs';
 import { Video, VideoGenre } from 'src/shared/services/interface.service';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
@@ -20,17 +20,33 @@ export class BackendService {
   constructor(private http: HttpClient, private router: Router, private auth: AuthService) { }
 
 
-  fetchVideoData() {
-    const url = environment.baseUrl + `/videos/`;
-    this.getVideos().pipe(take(1)).subscribe(
+  fetchVideoData(): Observable<Video[]> {
+    return this.getVideos().pipe(
+      tap((data: Video[]) => {
+        this.videos = data;
+        console.log(this.videos);
+        this.auth.isLoading = false;
+      }),
+      catchError(error => {
+        console.error('Error fetching video data:', error);
+        this.auth.isLoading = true;
+        return of([]); // Leeres Array zurückgeben, um Fehler zu behandeln
+      })
+    );
+  }
+    
+
+  fetchVideoData2() {
+    return this.getVideos().pipe(take(1)),tap(
       {
         next: (data: Video[]) => {
           this.videos = data;
           console.log(this.videos);
-          this.auth.loader = false;
+          this.auth.isLoading = false;
         },
         error: error => {
-          this.auth.loader = true;
+          this.auth.isLoading = true;
+          return of([]);
         }
       } );
     }

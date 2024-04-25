@@ -10,7 +10,7 @@ import { lastValueFrom } from 'rxjs';
 })
 export class AuthService {
 
-  loader: boolean = false;
+  isLoading: boolean = false;
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
   

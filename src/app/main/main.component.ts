@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/shared/services/auth.service';
 import { BackendService } from 'src/shared/services/backend.service';
+import { Video } from 'src/shared/services/interface.service';
 
 
 
@@ -30,9 +31,16 @@ export class MainComponent implements OnInit {
         }
       }
 
-      ngOnInit(): void {
-        this.backend.fetchVideoData();
+      ngOnInit() {
+        this.backend.fetchVideoData().subscribe(
+          (data: Video[]) => {
+            this.videos = data;
+          }
+        );
       }
     
-
+      playVideo(video: Video): void {
+        this.router.navigate(['/video'], { state: { videoUrl: video.video_file_url } });
+        console.log(video.video_file_url);
+      }
 }
