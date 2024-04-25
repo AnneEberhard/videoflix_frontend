@@ -1,0 +1,12 @@
+video {
+    width: 100vw;
+    height: 100vh; 
+}
+
+button {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    cursor: pointer;
+    z-index: 999;
+}

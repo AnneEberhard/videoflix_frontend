@@ -1,1 +1,7 @@
-<p>video works!</p>
+<div class="video-container">
+    <button class="close-button" (click)="goBack()">X</button>
+    <video controls autoplay>
+      <source [src]="videoUrl" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
