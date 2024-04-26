@@ -2,12 +2,11 @@ body {
   font-family: "Roboto";
   color: white;
   overflow-x: hidden;
-  max-width: 1920px;
   display: flex !important;
   flex-direction: column;
-  min-height: 100vh;
   align-items: stretch;
   background-image: url(/assets/images/pexels-adrien-olichon-3709369.jpg);
+  background-size: cover;
   background-position: center;
   font-size: 16px;
   margin:0;
@@ -62,7 +61,7 @@ section {
   display: flex !important;
   justify-content: center;
   align-items: center;
-  flex:1;
+  min-height: 75vh;
 }
 
 .dNone {

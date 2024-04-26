@@ -4,9 +4,11 @@
     </a>
     <button (click)="logout()" type="button">Log Out</button>
 </header>
-<section><div class="content">
-
-    <div class="contentTile" *ngFor="let video of videos" (click)="playVideo(video)">
+<section>
+  <div class="content" >
+    <div class="genre" *ngFor="let genre of genres">
+    <h2>{{ genre }}</h2>
+    <div class="contentTile" *ngFor="let video of filterVideosByGenre(genre)" (click)="playVideo(video)">
         <div>
           <img [src]="video.thumbnail_file_url" alt="{{ video.title }} thumbnail">
         </div>
@@ -15,5 +17,7 @@
           <p>{{ video.description }}</p>
         </div>
       </div>
-</div></section>
+    </div>
+</div>
+</section>
 

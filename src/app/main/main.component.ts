@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/shared/services/auth.service';
 import { BackendService } from 'src/shared/services/backend.service';
-import { Video } from 'src/shared/services/interface.service';
+import { Video, VideoGenre } from 'src/shared/services/interface.service';
 
 
 
@@ -14,6 +14,8 @@ import { Video } from 'src/shared/services/interface.service';
 export class MainComponent implements OnInit {
 
   videos: any[] = [];
+  genres: VideoGenre[] = ['Dystopia', 'Fantasy', 'Historical', 'Spy', 'Contemporary'];
+  selectedGenre: VideoGenre | null = null;
 
     constructor(public authService: AuthService, public backend: BackendService, private router: Router) {
       }
@@ -39,6 +41,14 @@ export class MainComponent implements OnInit {
         );
       }
     
+      filterVideosByGenre(genre: VideoGenre | null): Video[] {
+        if (!genre) {
+          return this.videos; 
+        }
+        return this.videos.filter(video => video.genre === genre);
+      }
+
+
       playVideo(video: Video): void {
         this.router.navigate(['/video'], { state: { videoUrl: video.video_file_url } });
         console.log(video.video_file_url);
