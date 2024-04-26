@@ -1,23 +1,31 @@
 <header>
-    <a routerLink="/" >
-        <h1>Videoflix</h1>
-    </a>
-    <button (click)="logout()" type="button">Log Out</button>
+  <a routerLink="/">
+    <h1>Videoflix</h1>
+  </a>
+  <button (click)="logout()" type="button">Log Out</button>
 </header>
 <section>
-  <div class="content" >
+  <div class="content">
     <div class="genre" *ngFor="let genre of genres">
-    <h2>{{ genre }}</h2>
-    <div class="contentTile" *ngFor="let video of filterVideosByGenre(genre)" (click)="playVideo(video)">
-        <div>
-          <img [src]="video.thumbnail_file_url" alt="{{ video.title }} thumbnail">
-        </div>
-        <div>
-          <h3>{{ video.title }}</h3>
-          <p>{{ video.description }}</p>
+      <h2 *ngIf="filterVideosByGenre(genre).length > 0">{{ genre }}</h2>
+      <div class="genreRow">
+        <div
+          class="contentTile"
+          *ngFor="let video of filterVideosByGenre(genre)"
+        >
+          <div>
+            <img
+              [src]="video.thumbnail_file_url"
+              alt="{{ video.title }} thumbnail"
+              (click)="playVideo(video)"
+            />
+          </div>
+          <div>
+            <h3>{{ video.title }}</h3>
+            <p>{{ video.description }}</p>
+          </div>
         </div>
       </div>
     </div>
-</div>
+  </div>
 </section>
-
