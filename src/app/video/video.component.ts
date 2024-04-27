@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -8,6 +8,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class VideoComponent implements OnInit {
   videoUrl: string ='';
+  @ViewChild('myVideo') myVideo!: ElementRef;
+  showCloseButton: boolean = false; // Variable zum Anzeigen/Ausblenden des Buttons
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
@@ -18,5 +20,10 @@ export class VideoComponent implements OnInit {
   goBack(): void {
     this.router.navigate(['/main']);
   }
+
+  toggleCloseButton() {
+    this.showCloseButton = !this.showCloseButton; // Toggle der showCloseButton Variable
+  }
+
 
 }
