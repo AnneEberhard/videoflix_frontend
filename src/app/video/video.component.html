@@ -1,6 +1,6 @@
 <div class="video-container">
   <button class="close-button" *ngIf="showCloseButton" (click)="goBack()">X</button>
-  <video #myVideo controls autoplay (click)="toggleCloseButton()"> <!-- Toggle-Mechanismus beim Klicken auf das Video -->
+  <video #myVideo controls autoplay (click)="toggleCloseButton()" (contextmenu)="preventRightClick($event)">
     <source [src]="videoUrl" type="video/mp4">
     Your browser does not support the video tag.
   </video>

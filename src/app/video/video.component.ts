@@ -25,5 +25,7 @@ export class VideoComponent implements OnInit {
     this.showCloseButton = !this.showCloseButton; // Toggle der showCloseButton Variable
   }
 
-
+  preventRightClick(event: MouseEvent) {
+    event.preventDefault();
+  }
 }

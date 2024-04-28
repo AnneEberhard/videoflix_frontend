@@ -22,6 +22,7 @@
               [src]="video.thumbnail_file_url"
               alt="{{ video.title }} thumbnail"
               (click)="playVideo(video)"
+              (contextmenu)="preventRightClick($event)"
             />
           </div>
           <div>

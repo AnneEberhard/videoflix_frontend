@@ -54,4 +54,8 @@ export class MainComponent implements OnInit {
         this.router.navigate(['/video'], { state: { videoUrl: video.video_file_url } });
         console.log(video.video_file_url);
       }
+
+      preventRightClick(event: MouseEvent) {
+        event.preventDefault();
+      }
 }
