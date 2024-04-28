@@ -25,32 +25,15 @@ export class BackendService {
       tap((data: Video[]) => {
         this.videos = data;
         console.log(this.videos);
-        this.auth.isLoading = false;
       }),
       catchError(error => {
         console.error('Error fetching video data:', error);
-        this.auth.isLoading = true;
-        return of([]); // Leeres Array zurückgeben, um Fehler zu behandeln
+        return of([]);
       })
     );
   }
     
 
-  fetchVideoData2() {
-    return this.getVideos().pipe(take(1)),tap(
-      {
-        next: (data: Video[]) => {
-          this.videos = data;
-          console.log(this.videos);
-          this.auth.isLoading = false;
-        },
-        error: error => {
-          this.auth.isLoading = true;
-          return of([]);
-        }
-      } );
-    }
-    
     getVideos(): Observable<Video[]> {
       const url = environment.baseUrl + `/videos/`;
       return this.http.get<Video[]>(url);

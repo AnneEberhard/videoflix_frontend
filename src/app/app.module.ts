@@ -21,6 +21,7 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { AuthInterceptor } from 'src/shared/services/auth-interceptor.service';
 import { ForgotComponent } from './forgot/forgot.component';
 import { ResetComponent } from './reset/reset.component';
+import { FilterByTitlePipe } from './main/filter-by-title.pipe';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ResetComponent } from './reset/reset.component';
     VideoComponent,
     ConfirmationComponent,
     ForgotComponent,
-    ResetComponent
+    ResetComponent,
+    FilterByTitlePipe
   ],
   imports: [
     BrowserModule,

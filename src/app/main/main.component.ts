@@ -16,6 +16,7 @@ export class MainComponent implements OnInit {
   videos: any[] = [];
   genres: VideoGenre[] = ['Dystopia', 'Fantasy', 'Historical', 'Spy', 'Contemporary'];
   selectedGenre: VideoGenre | null = null;
+  searchQuery: string = ''; // Definiere searchQuery hier
 
     constructor(public authService: AuthService, public backend: BackendService, private router: Router) {
       }
