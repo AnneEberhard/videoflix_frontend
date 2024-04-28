@@ -3,6 +3,14 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/shared/services/auth.service';
 
+
+/**
+ * This component handles the reset of a passwort
+ * @remarks
+ * is accessible without login but only via a unique link sent to the email
+ * the unique link is built by the backend, containing the identifier uidb64 and token
+ * dealing with backend is via auth.service
+ */
 @Component({
   selector: 'app-reset',
   templateUrl: './reset.component.html',

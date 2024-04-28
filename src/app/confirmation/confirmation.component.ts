@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+/**
+ * This component is to inform the user after registration
+ * @remarks
+ * The user registers via the registration component in the backend.
+ * For final activation, the user has to click on a link in his email box to activate his account
+ * This commponent informs user whether email has been send or whether an error occured
+ */
+
 @Component({
   selector: 'app-confirmation',
   templateUrl: './confirmation.component.html',
@@ -11,6 +19,10 @@ export class ConfirmationComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
+  /**
+   * gets query parameter from route to
+   * @returns {void}
+   */
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       const jsonData = params['data'];
@@ -28,6 +40,10 @@ export class ConfirmationComponent implements OnInit {
     }
   }
 
+   /**
+   * renders data depending on the info from backend
+   * @param {any} data - information from backend whether registration was successful or not
+   */
   render(data: any) {
     const confirmationBox = document.getElementById('confirmationBox');
     if (confirmationBox) {
@@ -42,7 +58,10 @@ export class ConfirmationComponent implements OnInit {
     }
   }
   
-
+/**
+ * builds template for successful registration
+ * @returns - html code for rendering
+ */
 templateSuccess() {
   let template = `  <h2>Confirmation</h2>
   <p>
@@ -53,7 +72,11 @@ templateSuccess() {
   return template;
 }
 
-
+/**
+ * builds template for failed registration
+ * @param {any} errorData - specific error that occured 
+ * @returns html code for rendering including the exact error
+ */
 templateError(errorData: any) {
   return `
     <h2>An Error has occurred</h2>

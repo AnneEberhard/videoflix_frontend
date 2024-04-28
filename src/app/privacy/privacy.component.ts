@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 
+/**
+ * This component shows the privacy policy
+ * @remarks
+ * is accessible without login
+ */
 @Component({
     selector: 'app-privacy',
     templateUrl: './privacy.component.html',

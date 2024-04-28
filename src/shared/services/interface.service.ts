@@ -1,6 +1,9 @@
+/**
+ * this service delacres all models used in the frontend
+ */
+
 export type VideoGenre = "Dystopia" | "Fantasy" | "Historical" | "Spy" | "Contemporary";
 
-export const genres:VideoGenre[] = ["Historical" , "Fantasy" , "Spy" , "Contemporary"];
 
 export interface Video {
     title: string;

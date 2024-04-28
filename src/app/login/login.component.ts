@@ -2,7 +2,12 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/shared/services/auth.service';
 
-
+/**
+ * This component handles the login in the frontend
+ * @remarks
+ * is accessible without login
+ * * dealing with backend is via auth.service
+ */
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',

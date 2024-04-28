@@ -1,6 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Video } from 'src/shared/services/interface.service';
 
+
+/**
+ * This pipe is only for filtering the videos bei genre s
+ * @remarks
+ * is not accessible without login
+ * models are defined in interface.service.ts
+ */
 @Pipe({
   name: 'filterByTitle'
 })

@@ -2,6 +2,12 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/shared/services/auth.service';
 
+/**
+ * This component shows the UI for and handles registration
+ * @remarks
+ * is accessible without login
+ * dealing with backend is via auth.service
+ */
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',

@@ -4,6 +4,12 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
+/**
+ * This service handles the authentication interceptor to ensure user is logged in
+ * @remarks
+ * checks if there is a token in the sessionStorage
+ * if none, redirects to login page
+ */
 @Injectable({
   providedIn: 'root'
 })
