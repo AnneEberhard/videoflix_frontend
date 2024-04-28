@@ -2,13 +2,13 @@
   <a routerLink="/">
     <h1>Videoflix</h1>
   </a>
-  <div class="searchBar">
-    <input type="text" placeholder="Search for Title..." [(ngModel)]="searchQuery">
-  </div>
+
   <button (click)="logout()" type="button">Log Out</button>
 </header>
 <section>
-  
+    <div class="searchBar">
+    <input type="text" placeholder="Search for Title..." [(ngModel)]="searchQuery">
+  </div>
   <div class="content">
     <div class="genre" *ngFor="let genre of genres">
       <h2 *ngIf="filterVideosByGenre(genre).length > 0">{{ genre }}</h2>

@@ -7,9 +7,10 @@ img {
     flex-direction: column;
     display: flex;
     gap: 16px;
-    width:100%;
+    width:90%;
     margin:32px;
     flex:1;
+    box-sizing: border-box;
 }
 
 .genre {
@@ -45,3 +46,4 @@ img {
         padding: 16px;
     }
 }
+
