@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/shared/services/auth.service';
 import { BackendService } from 'src/shared/services/backend.service';
 import { Video, VideoGenre } from 'src/shared/services/interface.service';
+import { environment } from 'src/environments/environment';
+import { SpeedTestService } from 'src/shared/services/speedtest.service';
 
 
 /**
@@ -23,9 +25,10 @@ export class MainComponent implements OnInit {
   videos: any[] = [];
   genres: VideoGenre[] = ['Dystopia', 'Fantasy', 'Historical', 'Spy', 'Contemporary'];
   selectedGenre: VideoGenre | null = null;
-  searchQuery: string = ''; // Definiere searchQuery hier
+  searchQuery: string = '';
+  speed: number = 1;
 
-  constructor(public authService: AuthService, public backend: BackendService, private router: Router) {
+  constructor(public authService: AuthService, public backend: BackendService, private router: Router, private speedTestService: SpeedTestService) {
   }
 
   /**
@@ -59,6 +62,7 @@ export class MainComponent implements OnInit {
         this.videos = data;
       }
     );
+    this.runSpeedTest();
   }
 
 
@@ -74,11 +78,20 @@ export class MainComponent implements OnInit {
   }
 
   /**
-    * switches to Video  component for playing the video
+    * switches to Video component for playing the video
+    * url based on speedtest
     * @param {Video} video Video Data from the backend for this specific video
     */
   playVideo(video: Video): void {
-    this.router.navigate(['/video'], { state: { videoUrl: video.video_file_url } });
+    let videoUrl: string;
+    if (this.speed < 3) {
+      videoUrl = video.video_file_url.replace('.mp4', '_480p.mp4');
+    } else if (this.speed >= 3 && this.speed <= 10) {
+      videoUrl = video.video_file_url.replace('.mp4', '_720p.mp4');
+    } else {
+      videoUrl = video.video_file_url;
+    }
+    this.router.navigate(['/video'], { state: { videoUrl: videoUrl } });
   }
 
   /**
@@ -88,4 +101,17 @@ export class MainComponent implements OnInit {
   preventRightClick(event: MouseEvent) {
     event.preventDefault();
   }
+
+  /**
+  * runs speedtest of internet connection to determine wich video should be loaded
+  */
+  runSpeedTest() {
+    const testFileUrl = environment.baseUrl + '/speedtest/';
+    const fileSizeInBytes = 1000000;
+    this.speedTestService.testDownloadSpeed(testFileUrl, fileSizeInBytes).then(speed => {
+      this.speed = speed;
+    });
+  }
+
+
 }
