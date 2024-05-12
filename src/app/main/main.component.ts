@@ -27,6 +27,7 @@ export class MainComponent implements OnInit {
   selectedGenre: VideoGenre | null = null;
   searchQuery: string = '';
   speed: number = 1;
+  selectedVideo: Video | null = null;
 
   constructor(public authService: AuthService, public backend: BackendService, private router: Router, private speedTestService: SpeedTestService) {
   }
@@ -113,5 +114,18 @@ export class MainComponent implements OnInit {
     });
   }
 
+  /**
+  * shows overlay with video details
+  * @param {Video} video Video Data from the backend for this specific video
+  */
+  showOverlay(video: Video): void {
+    this.selectedVideo = video;
+  }
 
+  /**
+  * closes overlay
+  */
+  closeOverlay(): void {
+    this.selectedVideo = null;
+  }
 }

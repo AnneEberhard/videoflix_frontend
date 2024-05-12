@@ -3,13 +3,21 @@
     <h1>Anderlandflix</h1>
   </a>
   <div class="searchBar" id="search">
-    <input type="text" placeholder="Search for Title..." [(ngModel)]="searchQuery">
+    <input
+      type="text"
+      placeholder="Search for Title..."
+      [(ngModel)]="searchQuery"
+    />
   </div>
   <button (click)="logout()" type="button">Log Out</button>
 </header>
 <section>
-    <div class="searchBar" id="searchMobile">
-    <input type="text" placeholder="Search for Title..." [(ngModel)]="searchQuery">
+  <div class="searchBar" id="searchMobile">
+    <input
+      type="text"
+      placeholder="Search for Title..."
+      [(ngModel)]="searchQuery"
+    />
   </div>
   <div class="content">
     <div class="genre" *ngFor="let genre of genres">
@@ -17,22 +25,37 @@
       <div *ngIf="filterVideosByGenre(genre).length > 0" class="genreRow">
         <div
           class="contentTile"
-          *ngFor="let video of filterVideosByGenre(genre) | filterByTitle:searchQuery"
+          *ngFor="
+            let video of filterVideosByGenre(genre)
+              | filterByTitle : searchQuery
+          "
+          (click)="showOverlay(video)"
         >
           <div>
             <img
               [src]="video.thumbnail_file_url"
               alt="{{ video.title }} thumbnail"
-              (click)="playVideo(video)"
               (contextmenu)="preventRightClick($event)"
             />
           </div>
           <div>
             <h3>{{ video.title }}</h3>
-            <p>{{ video.description }}</p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+<div *ngIf="selectedVideo" class="overlay">
+  <button id="overlayCloseButton" (click)="closeOverlay()">Close</button>
+  <div class="overlayBox">
+    <img [src]="selectedVideo.thumbnail_file_url" alt="Thumbnail" />
+    <div class="overlayRight">
+      <h3>{{ selectedVideo.title }}</h3>
+      <p>{{ selectedVideo.description }}</p>
+    </div>
+  </div>
+  <div class="overlayBottom">
+    <button (click)="playVideo(selectedVideo)">Play Video</button>
+  </div>
+</div>
