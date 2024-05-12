@@ -11,7 +11,7 @@ import { ResetComponent } from './reset/reset.component';
 import { VideoComponent } from './video/video.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: MainComponent },
   { path: 'login', component: LoginComponent },
   { path: 'imprint', component: ImprintComponent },
   { path: 'privacy', component: PrivacyComponent },

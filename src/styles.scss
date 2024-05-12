@@ -12,6 +12,26 @@ body {
   margin:0;
 }
 
+::-webkit-scrollbar {
+  width: 12px; /* Breite des Scrollbalkens */
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(241, 241, 241, 0.1);  /* Hintergrundfarbe der Laufschiene */
+}
+
+/* Stylt den Griff des Scrollbalkens */
+::-webkit-scrollbar-thumb {
+  background-color: #e50914; /* Farbe des Griffs */
+  border-radius: 6px; /* Rundung des Griffs */
+}
+
+/* Ändert die Farbe des Griffs beim Überfahren mit der Maus */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ad0810; /* Dunklere Farbe beim Hover */
+}
+
+
 .app-container {
   display: flex;
   flex-direction: column;
@@ -27,7 +47,7 @@ header {
 
   a:hover {
     text-decoration: none !important;
-    text-shadow: 10px 5px 5px red;
+    text-shadow: 2px 2px 3px red;
   }
 
   button {
@@ -100,6 +120,17 @@ h1 {
   align-items: flex-start;
   flex-direction: column;
   padding: 32px;
+}
+
+
+@media (max-width:400px) {
+ h1 {
+  font-size: 1.5em;
+ }
+
+ button {
+  padding: 0.5rem;
+ }
 }
 
 /* roboto-100 - latin */

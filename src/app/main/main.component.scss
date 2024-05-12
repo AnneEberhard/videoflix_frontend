@@ -1,6 +1,14 @@
 img {
     height: 200px;
     cursor: pointer;
+
+    &:hover {
+        height: 250px;
+    }
+}
+
+#searchMobile {
+    display: none;
 }
 
 .content {
@@ -23,7 +31,8 @@ img {
     display: flex;
     flex-direction: row;
     gap:16px;
-    flex-wrap: wrap;
+    overflow-x: scroll;
+    width: 100%;
 }
 
 .contentTile {
@@ -47,3 +56,12 @@ img {
     }
 }
 
+@media(max-width:600px) {
+    #searchMobile {
+      display: block;
+    }
+  
+    #search {
+      display: none;
+    }
+   }
