@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    baseUrl: 'https://anderlandflix.com', 
+    baseUrl: 'https://backend.anderlandflix.com', 
   };
   
