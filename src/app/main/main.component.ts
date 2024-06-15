@@ -66,7 +66,6 @@ export class MainComponent implements OnInit {
     this.runSpeedTest();
   }
 
-
   /**
   * filters videos by genre for html code
   * @param {VideoGenre | null} genre to be filtered

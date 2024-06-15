@@ -16,7 +16,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { VideoComponent } from './video/video.component';
 import { BackendService } from 'src/shared/services/backend.service';
-
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { AuthInterceptor } from 'src/shared/services/auth-interceptor.service';
 import { ForgotComponent } from './forgot/forgot.component';
@@ -45,7 +44,6 @@ import { FilterByTitlePipe } from './main/filter-by-title.pipe';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FormsModule
   ],
   providers: [    
     AuthService,
@@ -55,7 +53,6 @@ import { FilterByTitlePipe } from './main/filter-by-title.pipe';
       useClass: AuthInterceptor,
       multi: true
     }
-
 ],
   bootstrap: [AppComponent]
 })

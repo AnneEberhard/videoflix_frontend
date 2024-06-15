@@ -119,11 +119,4 @@ export class RegisterComponent {
     }
 
   }
-
-
-
-
-
 }
-
-
