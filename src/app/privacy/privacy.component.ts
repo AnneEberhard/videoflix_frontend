@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 /**
  * This component shows the privacy policy
@@ -10,6 +10,9 @@ import { Component } from '@angular/core';
     templateUrl: './privacy.component.html',
     styleUrl: './privacy.component.scss',
 })
-export class PrivacyComponent {
+export class PrivacyComponent implements OnInit {
 
+    ngOnInit(): void {
+        window.scrollTo(0, 0);
+    }
 }
