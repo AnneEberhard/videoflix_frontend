@@ -119,6 +119,7 @@ export class MainComponent implements OnInit {
   */
   showOverlay(video: Video): void {
     this.selectedVideo = video;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   /**
